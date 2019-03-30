@@ -31,5 +31,10 @@ public updatePostulant(documentId: string, data: any) {
   return this.firestore.collection('postulants').doc(documentId).set(data);
 }
 
+  //Borra una postulante
+  public deletePostulant(documentId: string) {
+    return this.firestore.collection('postulants').doc(documentId).delete();
+  }
+
 
 }

@@ -75,4 +75,25 @@ public newPostulantForm = new FormGroup({
     }
   }
 
+  public editPostulant(documentId) {
+    let editSubscribe = this.firestoreService.getPostulant(documentId).subscribe((postulantData:any) => {
+      this.currentStatus = 2;
+      this.documentId = documentId;
+      this.newPostulantForm.setValue({
+        id: documentId,
+        fullname: postulantData.payload.data().fullname,
+        photo: postulantData.payload.data().photo
+      });
+      editSubscribe.unsubscribe();
+    });
+  }
+
+  public deletePostulant(documentId) {
+    this.firestoreService.deletePostulant(documentId).then(() => {
+      console.log('Documento eliminado!');
+    }, (error) => {
+      console.error(error);
+    });
+  }
+
 }
