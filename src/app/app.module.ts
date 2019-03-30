@@ -9,9 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployerFormComponent } from './components/employer-form/employer-form.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AutenticationComponent } from './auth/autentication/autentication.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployerFormComponent, AutenticationComponent],
+  declarations: [AppComponent, EmployerFormComponent, AutenticationComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
