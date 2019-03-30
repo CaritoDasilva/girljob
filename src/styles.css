@@ -11,3 +11,19 @@ body{
     margin-left: 30%;
     margin-right: 30%;
 }
+img {
+    vertical-align: middle;
+    border-style: none;
+    width: 40% !important;
+}
+.subtitle{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.nameTag{
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.postulantPic{
+    width: 80%;
+}

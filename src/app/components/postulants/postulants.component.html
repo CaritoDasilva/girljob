@@ -2,13 +2,13 @@
     <div class="grd-row">
       <div class="grd-row-col-2">
           <h1>Postulantes</h1>
-          <form (ngSubmit)="newPostulant(newPostulantForm.value)" [formGroup]="newPostulantForm">
+          <form class="formInicioPostulante" (ngSubmit)="newPostulant(newPostulantForm.value)" [formGroup]="newPostulantForm">
               <input type="hidden" formControlName="id">
             
-              <label for="fullname">Nombre</label>
+              <label class="nameTag" for="fullname">Nombre</label>
               <input type="text" formControlName="fullname">
             
-              <label for="photo">Imagen</label>
+              <label class="nameTag" for="photo">Imagen</label>
               <input type="url" formControlName="photo">
             
               <input type="submit" class="btn--blue btn--add" [disabled]="!newPostulantForm.valid" value="Agregar">
@@ -18,7 +18,7 @@
         <div class="cats_container">
           <div class="media" *ngFor="let postulant of postulants">
             <div class="media-figure">
-              <img [src]="postulant.data.photo">
+              <img class="postulantPic" [src]="postulant.data.photo">
             </div>
             <div class="media-body">
               <p>{{postulant.data.fullname}}</p>
