@@ -4,9 +4,10 @@
     margin-left: 35%;
     margin-right: 35%;
     margin-top: 5%;
-    border: 4px purple solid;
+    border: 2px rgb(223, 19, 223) solid;
     padding: 5%;
 }
 .subtitle{
     margin-top: 10%;
+    margin-bottom: 10%;
 }
