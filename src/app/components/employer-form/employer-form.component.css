@@ -1,6 +1,12 @@
 .lookingForAJobForm{
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
+    font-family: 'Roboto', sans-serif;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
     margin-top: 5%;
+    border: 4px purple solid;
+    padding: 5%;
+}
+.subtitle{
+    margin-top: 10%;
 }
