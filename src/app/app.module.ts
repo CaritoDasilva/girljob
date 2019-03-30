@@ -13,11 +13,22 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent, EmployerFormComponent, AutenticationComponent, NavbarComponent],
+import { environment } from '../environments/environment.prod';
+import { AngularFireModule } from 'angularfire2';
+import { PostulantsComponent } from './components/postulants/postulants.component';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+
+
+@NgModule({
+  declarations: [AppComponent, EmployerFormComponent, AutenticationComponent, PostulantsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     // Specify the ngx-auth-firebaseui library as an import
     NgxAuthFirebaseUIModule.forRoot({
       apiKey: 'AIzaSyBM7Ue0pHRYImLt0v0JYjLmr2oQAswDEts',
