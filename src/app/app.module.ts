@@ -11,8 +11,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AutenticationComponent } from './auth/autentication/autentication.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
-@NgModule({
-  declarations: [AppComponent, EmployerFormComponent, AutenticationComponent, NavbarComponent],
+
 import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from 'angularfire2';
 import { PostulantsComponent } from './components/postulants/postulants.component';
