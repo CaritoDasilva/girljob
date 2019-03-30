@@ -12,7 +12,7 @@ export class FirestoreService {
   ) {}
 
    //Crea una nueva postulante
-   public createPostulant(data: {nombre: string, url: string}) {
+   public createPostulant(data: {fullname: string, photo: string}) {
     return this.firestore.collection('postulants').add(data);
   }
 

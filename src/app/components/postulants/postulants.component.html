@@ -3,13 +3,17 @@
   <div class="grd-row">
     <div class="grd-row-col-2">
         <h1>Postulantes</h1>
-        <form>
-          <label for="fullname">Nombre</label>
-          <input type="text" name="fullname">
-          <label for="photo">Imagen</label>
-          <input type="url" name="photo">
-          <input type="submit" class="btn--blue btn--add" value="Agregar">
-        </form>
+        <form (ngSubmit)="newPostulant(newPostulantForm.value)" [formGroup]="newPostulantForm">
+            <input type="hidden" formControlName="id">
+          
+            <label for="fullname">Nombre</label>
+            <input type="text" formControlName="fullname">
+          
+            <label for="photo">Imagen</label>
+            <input type="url" formControlName="photo">
+          
+            <input type="submit" class="btn--blue btn--add" [disabled]="!newPostulantForm.valid" value="Agregar">
+          </form>
     </div>
     <div class="grd-row-col-4">
       <div class="cats_container">
