@@ -3,13 +3,17 @@
   <div class="grd-row">
     <div class="grd-row-col-2">
         <h1 class="subtitle">Postulantes</h1>
-        <form class="formInicioPostulante">
-          <label class="nameTag" for="fullname">Nombre</label>
-          <input type="text" name="fullname">
-          <label class="nameTag" for="photo">Imagen</label>
-          <input type="url" name="photo"placeholder="">
-          <input type="submit" class="btn--blue btn--add" value="Agregar">
-        </form>
+        <form class="formInicioPostulante" (ngSubmit)="newPostulant(newPostulantForm.value)" [formGroup]="newPostulantForm">
+            <input type="hidden" formControlName="id">
+          
+            <label class="nameTag" for="fullname">Nombre</label>
+            <input type="text" formControlName="fullname">
+          
+            <label class="nameTag" for="photo">Imagen</label>
+            <input type="url" formControlName="photo">
+          
+            <input type="submit" class="btn--blue btn--add" [disabled]="!newPostulantForm.valid" value="Agregar">
+          </form>
     </div>
     <div class="row">
       <div class="col">
@@ -23,11 +27,10 @@
     <div class="row">
       <div class="col">
           <div class="media-body">
-              <p>{{postulant.data.fullname}}</p>
-              <div class="btn--group">
-                <button class="btn--green btn--s btn1">Editar</button>
-                <button class="btn--red btn--s btn2">Eliminar</button>
-              </div>
+            <p>{{postulant.data.fullname}}</p>
+            <div class="btn--group">
+                <button class="btn--green btn--s btn1" (click)="editPostulant(postulant.id)">Editar</button>
+                <button class="btn--red btn--s btn2" (click)="deletePostulant(postulant.id)">Eliminar</button>
             </div>
       </div>
     </div>

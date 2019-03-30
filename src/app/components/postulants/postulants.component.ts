@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../../services/firestore/firestore.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-postulants',
@@ -7,11 +8,24 @@ import { FirestoreService } from '../../services/firestore/firestore.service';
   styleUrls: ['./postulants.component.css']
 })
 export class PostulantsComponent implements OnInit {
-
+  
   public postulants = [];
+  public documentId = null;
+public currentStatus = 1;
+public newPostulantForm = new FormGroup({
+  fullname: new FormControl(''),
+  photo: new FormControl(''),
+  id: new FormControl('')
+});
   constructor(
     private firestoreService: FirestoreService
-  ) { }
+  ) { 
+    this.newPostulantForm.setValue({
+      id: '',
+      fullname: '',
+      photo: ''
+    });
+  }
 
   ngOnInit() {
     this.firestoreService.getPostulants().subscribe((postulantSnapshot) => {
@@ -22,6 +36,63 @@ export class PostulantsComponent implements OnInit {
           data: postulantData.payload.doc.data()
         });
       })
+    });
+  }
+
+  public newPostulant(form, documentId = this.documentId) {
+    console.log(`Status: ${this.currentStatus}`);
+    if (this.currentStatus == 1) {
+      let data = {
+        fullname: form.fullname,
+        photo: form.photo
+      }
+      this.firestoreService.createPostulant(data).then(() => {
+        console.log('Documento creado exitósamente!');
+        this.newPostulantForm.setValue({
+          fullname: '',
+          photo: '',
+          id: ''
+        });
+      }, (error) => {
+        console.error(error);
+      });
+    } else {
+      let data = {
+        fullname: form.fullname,
+        photo: form.photo
+      }
+      this.firestoreService.updatePostulant(documentId, data).then(() => {
+        this.currentStatus = 1;
+        this.newPostulantForm.setValue({
+          fullname: '',
+          photo: '',
+          id: ''
+        });
+        console.log('Documento editado exitósamente');
+      }, (error) => {
+        console.log(error);
+      });
+    }
+  }
+
+  public editPostulant(documentId) {
+    let editSubscribe = this.firestoreService.getPostulant(documentId).subscribe((postulantData:any) => {
+      this.currentStatus = 2;
+      this.documentId = documentId;
+      this.newPostulantForm.setValue({
+        id: documentId,
+        fullname: postulantData.payload.data().fullname,
+        photo: postulantData.payload.data().photo
+      });
+      editSubscribe.unsubscribe();
+    });
+  }
+
+  public deletePostulant(documentId) {
+    this.firestoreService.deletePostulant(documentId).then(() => {
+      console.log('Documento eliminado!');
+    }, (error) => {
+      console.error(error);
     });
   }
 
