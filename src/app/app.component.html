@@ -1,11 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <app-employer-form></app-employer-form>
-  <ngx-auth-firebaseui
-    [providers]="[providers.Google, providers.Facebook, providers.Twitter]"
-    (onSuccess)="printUser($event)"
-    (onError)="printError()"
-  ></ngx-auth-firebaseui>
+<app-autentication></app-autentication>
 
   <router-outlet></router-outlet>
 </div>

@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployerFormComponent } from './components/employer-form/employer-form.component';
+import { AutenticationComponent } from './auth/autentication/autentication.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployerFormComponent],
+  declarations: [AppComponent, EmployerFormComponent, AutenticationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

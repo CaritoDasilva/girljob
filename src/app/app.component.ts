@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthProvider } from 'ngx-auth-firebaseui';
+
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,5 @@ import { AuthProvider } from 'ngx-auth-firebaseui';
 })
 export class AppComponent {
   title = 'girljob';
-  providers = AuthProvider;
+  
 }
