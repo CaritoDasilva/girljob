@@ -7,7 +7,12 @@ import { AppComponent } from './app.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployerFormComponent } from './components/employer-form/employer-form.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AutenticationComponent } from './auth/autentication/autentication.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+
+@NgModule({
+  declarations: [AppComponent, EmployerFormComponent, AutenticationComponent, NavbarComponent],
 import { environment } from '../environments/environment.prod';
 import { AngularFireModule } from 'angularfire2';
 import { PostulantsComponent } from './components/postulants/postulants.component';
@@ -20,6 +25,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgbModule,
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
