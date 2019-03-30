@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployerFormComponent } from './components/employer-form/employer-form.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, EmployerFormComponent],
@@ -14,6 +15,7 @@ import { EmployerFormComponent } from './components/employer-form/employer-form.
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgbModule,
     // Specify the ngx-auth-firebaseui library as an import
     NgxAuthFirebaseUIModule.forRoot({
       apiKey: 'AIzaSyBM7Ue0pHRYImLt0v0JYjLmr2oQAswDEts',
