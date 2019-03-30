@@ -1,0 +1,31 @@
+
+<div class="grd">
+  <div class="grd-row">
+    <div class="grd-row-col-2">
+        <h1>Postulantes</h1>
+        <form>
+          <label for="fullname">Nombre</label>
+          <input type="text" name="fullname">
+          <label for="photo">Imagen</label>
+          <input type="url" name="photo">
+          <input type="submit" class="btn--blue btn--add" value="Agregar">
+        </form>
+    </div>
+    <div class="grd-row-col-4">
+      <div class="cats_container">
+        <div class="media" *ngFor="let postulant of postulants">
+          <div class="media-figure">
+            <img [src]="postulant.data.photo">
+          </div>
+          <div class="media-body">
+            <p>{{postulant.data.fullname}}</p>
+            <div class="btn--group">
+              <button class="btn--green btn--s btn1">Editar</button>
+              <button class="btn--red btn--s btn2">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,13 +8,21 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployerFormComponent } from './components/employer-form/employer-form.component';
 import { AutenticationComponent } from './auth/autentication/autentication.component';
+import { environment } from '../environments/environment.prod';
+import { AngularFireModule } from 'angularfire2';
+import { PostulantsComponent } from './components/postulants/postulants.component';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+
 
 @NgModule({
-  declarations: [AppComponent, EmployerFormComponent, AutenticationComponent],
+  declarations: [AppComponent, EmployerFormComponent, AutenticationComponent, PostulantsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     // Specify the ngx-auth-firebaseui library as an import
     NgxAuthFirebaseUIModule.forRoot({
       apiKey: 'AIzaSyBM7Ue0pHRYImLt0v0JYjLmr2oQAswDEts',
